@@ -1,17 +1,18 @@
 # Regex filters provided by MMotti
-# https://github.com/mmotti
 
-# Installation
-# If you have made it directly to this list and are wondering how to apply these to your Pi-hole
-# installation, there is a Python (3.6+) script to automate this process. Please see:
-# https://github.com/mmotti/pihole-regex
+https://github.com/mmotti
 
-# N.B - False Positives
-# Due to the restrictive nature of these regexps, you may encounter a small number of false positives
-# for domain names that are similar to ad-serving / tracking domains.
-# I will continue to update the following whitelist with any conflicts, and you can choose to
-# add them to your install if you so wish, or use them as a reference.
-# https://raw.githubusercontent.com/mmotti/pihole-regex/master/whitelist.list
+## Installation
+If you have made it directly to this list and are wondering how to apply these to your Pi-hole
+installation, there is a Python (3.6+) script to automate this process. Please see:
+https://github.com/mmotti/pihole-regex
+
+## N.B - False Positives
+Due to the restrictive nature of these regexps, you may encounter a small number of false positives
+for domain names that are similar to ad-serving / tracking domains.
+I will continue to update the following whitelist with any conflicts, and you can choose to
+add them to your install if you so wish, or use them as a reference.
+https://raw.githubusercontent.com/mmotti/pihole-regex/master/whitelist.list
 
 # Regular Expressions:
 
