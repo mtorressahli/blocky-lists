@@ -1,4 +1,5 @@
 hotio.dev
+cr.hotio.dev
 anti-ad.net
 iij.ad.jp
 stats.foldingathome.org
