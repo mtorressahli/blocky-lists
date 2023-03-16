@@ -207,20 +207,32 @@ done < "$SOURCELISTS_PATH"
 
 num_categories=${#categories[@]}
 
+
+for category in "${categories[@]}"; do
+  simple_file="$OUTPUT_DIR/${category}.txt"
+  consolidated_file="$OUTPUT_DIR/${category}-consolidated.txt"
+  deduped_file="$OUTPUT_DIR/${category}-consolidated-deduped.txt"
+  
+  # Copy the consolidated category file to a deduped category file
+  cp "$consolidated_file" "$deduped_file"
+  
+done
+
+
 # Array to store the total number of duplicates removed per file
 declare -A total_duplicates_removed
 last_duplicates_removed=0
 
 # Initialize the total_duplicates_removed array
 for category in "${categories[@]}"; do
-  total_duplicates_removed["$OUTPUT_DIR/${category}-consolidated.txt"]=0
+  total_duplicates_removed["$OUTPUT_DIR/${category}-consolidated-deduped.txt"]=0
 done
 
 # Remove duplicates and update the total_duplicates_removed array
 for ((i = 0; i < num_categories - 1; i++)); do
   for ((j = i + 1; j < num_categories; j++)); do
-    high_priority_file="$OUTPUT_DIR/${categories[$i]}-consolidated.txt"
-    low_priority_file="$OUTPUT_DIR/${categories[$j]}-consolidated.txt"
+    high_priority_file="$OUTPUT_DIR/${categories[$i]}-consolidated-deduped.txt"
+    low_priority_file="$OUTPUT_DIR/${categories[$j]}-consolidated-deduped.txt"
     remove_duplicates "$high_priority_file" "$low_priority_file"
     total_duplicates_removed["$low_priority_file"]=$((total_duplicates_removed["$low_priority_file"] + last_duplicates_removed))
   done
@@ -232,12 +244,30 @@ echo "---------"
 
 # Print the summary for each file
 for category in "${categories[@]}"; do
-  file="$OUTPUT_DIR/${category}-consolidated.txt"
+  file="$OUTPUT_DIR/${category}-consolidated-deduped.txt"
   original_count=$(wc -l < "$file")
   duplicates_removed=${total_duplicates_removed["$file"]}
   retained_count=$((original_count - duplicates_removed))
   percentage_retained=$(awk "BEGIN {printf \"%.2f\", $retained_count / $original_count * 100}")
   echo "$duplicates_removed lines removed from $(basename "$file") – $percentage_retained% retained"
+done
+
+
+# Create simple-named category files and deduplicated category files
+echo
+echo "###########################################"
+echo -e "\033[1m# Creating simple-named category files and deduplicated category files\033[0m"
+echo "###########################################"
+echo
+
+for category in "${categories[@]}"; do
+  simple_file="$OUTPUT_DIR/${category}.txt"
+  consolidated_file="$OUTPUT_DIR/${category}-consolidated.txt"
+  deduped_file="$OUTPUT_DIR/${category}-consolidated-deduped.txt"
+  
+  # Copy the deduped category file to a simple-named category file
+  cp "$deduped_file" "$simple_file"
+  
 done
 
 
