@@ -1,16 +1,64 @@
 #!/bin/bash
 
-# Define the output directory and git repo paths
-OUTPUT_DIR="/mnt/apps/opt/tools/blocky-lists/blocklists"
-REPO_DIR="/mnt/apps/opt/tools/blocky-lists"
-REPO_URL="https://github.com/mtorressahli/blocky-lists.git"
+# Initialize optional variables with default values
+OUTPUT_DIR=""
+SOURCELISTS_PATH=""
+LOG_FILE=""
+PUSH_TO_GITHUB=true
 
-# Define the path to the local copy of the Markdown file
-SOURCELISTS_PATH="/mnt/apps/opt/tools/blocky-lists/blocklists/sourcelists.md"
+# Parse optional arguments
+while getopts "o:s:l:p" opt; do
+  case $opt in
+    o)
+      OUTPUT_DIR="$OPTARG"
+      ;;
+    s)
+      SOURCELISTS_PATH="$OPTARG"
+      ;;
+    l)
+      LOG_FILE="$OPTARG"
+      ;;
+    p)
+      PUSH_TO_GITHUB=false
+      ;;
+    *)
+      echo "Usage: $0 [-o OUTPUT_DIR] [-s SOURCELISTS_PATH] [-l LOG_FILE] [-p] [REPO_DIR] REPO_URL"
+      exit 1
+      ;;
+  esac
+done
 
-# Git username and email
-GIT_USERNAME="mtorressahli"
-GIT_EMAIL="mtorressahli@gmail.com"
+# Shift arguments to remove the optional flags that have already been parsed
+shift $((OPTIND-1))
+
+# Check if the correct number of non-optional arguments is provided
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
+  echo "Usage: $0 [-o OUTPUT_DIR] [-s SOURCELISTS_PATH] [-l LOG_FILE] [-p] [REPO_DIR] REPO_URL"
+  exit 1
+fi
+
+# Assign non-optional arguments to variables
+if [ "$#" -eq 1 ]; then
+  REPO_DIR="$(pwd)/blocky-lists"
+  REPO_URL="$1"
+else
+  REPO_DIR="$1"
+  REPO_URL="$2"
+fi
+
+# Set default values for OUTPUT_DIR and SOURCELISTS_PATH if not provided
+if [ -z "$OUTPUT_DIR" ]; then
+  OUTPUT_DIR="$REPO_DIR/blocklists"
+fi
+
+if [ -z "$SOURCELISTS_PATH" ]; then
+  SOURCELISTS_PATH="$REPO_DIR/blocklists/sourcelists.md"
+fi
+
+# Redirect stdout and stderr to the log file if provided
+if [ -n "$LOG_FILE" ]; then
+  exec > >(tee -a "$LOG_FILE") 2>&1
+fi
 
 # Pull github repo
 echo
@@ -122,6 +170,77 @@ done
 # Wait for all consolidations to complete
 wait
 
+# Remove duplicates between all pairs of category-specific files
+echo
+echo           "##########################################"
+echo -e "\033[1m# Removing duplicates between categories #\033[0m"
+echo           "##########################################"
+echo
+
+
+remove_duplicates() {
+  high_priority_file="$1"
+  low_priority_file="$2"
+  tmp_file="$(mktemp)"
+
+  # Remove duplicates from the low priority file
+  duplicates_removed=$(comm -12 <(sort "$high_priority_file") <(sort "$low_priority_file") | wc -l)
+  comm -23 <(sort "$low_priority_file") <(sort "$high_priority_file") > "$tmp_file"
+
+  # Replace the low priority file with the temporary file
+  mv "$tmp_file" "$low_priority_file"
+
+  echo "Removed $duplicates_removed duplicates between $(basename "$high_priority_file") and $(basename "$low_priority_file")"
+
+  # Update the global variable
+  last_duplicates_removed=$duplicates_removed
+}
+
+# Extract categories from sourcelists.md file
+categories=()
+while read line; do
+  if [[ $line =~ ^# ]]; then
+    category="${line#"# "}"
+    categories+=("$category")
+  fi
+done < "$SOURCELISTS_PATH"
+
+num_categories=${#categories[@]}
+
+# Array to store the total number of duplicates removed per file
+declare -A total_duplicates_removed
+last_duplicates_removed=0
+
+# Initialize the total_duplicates_removed array
+for category in "${categories[@]}"; do
+  total_duplicates_removed["$OUTPUT_DIR/${category}-consolidated.txt"]=0
+done
+
+# Remove duplicates and update the total_duplicates_removed array
+for ((i = 0; i < num_categories - 1; i++)); do
+  for ((j = i + 1; j < num_categories; j++)); do
+    high_priority_file="$OUTPUT_DIR/${categories[$i]}-consolidated.txt"
+    low_priority_file="$OUTPUT_DIR/${categories[$j]}-consolidated.txt"
+    remove_duplicates "$high_priority_file" "$low_priority_file"
+    total_duplicates_removed["$low_priority_file"]=$((total_duplicates_removed["$low_priority_file"] + last_duplicates_removed))
+  done
+done
+
+echo
+echo "Summary:"
+echo "---------"
+
+# Print the summary for each file
+for category in "${categories[@]}"; do
+  file="$OUTPUT_DIR/${category}-consolidated.txt"
+  original_count=$(wc -l < "$file")
+  duplicates_removed=${total_duplicates_removed["$file"]}
+  retained_count=$((original_count - duplicates_removed))
+  percentage_retained=$(awk "BEGIN {printf \"%.2f\", $retained_count / $original_count * 100}")
+  echo "$duplicates_removed lines removed from $(basename "$file") – $percentage_retained% retained"
+done
+
+
 echo
 echo           "################################################################################"
 echo -e "\033[1m# Consolidating all category files into full-raw.txt and full-consolidated.txt #\033[0m"
@@ -167,30 +286,31 @@ fi
 echo
 echo "Done! Output files are located in $OUTPUT_DIR."
 
+if $PUSH_TO_GITHUB; then
+  # Push to github repo
+  echo
+  echo           "##########################"
+  echo -e "\033[1m# Pushing to Github repo #\033[0m"
+  echo           "##########################"
+  echo
 
-# Push to github repo
-echo
-echo           "##########################"
-echo -e "\033[1m# Pushing to Github repo #\033[0m"
-echo           "##########################"
-echo
+  # Move to the output directory
+  cd "$OUTPUT_DIR"
 
-# Move to the output directory
-cd "$OUTPUT_DIR"
+  # Add all files to git
+  echo "Adding files to Git..."
+  git add .
 
-# Add all files to git
-echo "Adding files to Git..."
-git add .
+  # Commit the changes
+  echo "Committing changes..."
+  git commit -m "Updated blocklists $(date +%F)"
 
-# Commit the changes
-echo "Committing changes..."
-git config user.name "$GIT_USERNAME"
-git config user.email "$GIT_EMAIL"
-git commit -m "Updated blocklists $(date +%F)"
+  # Push changes to the remote repository
+  echo "Pushing changes to remote repository..."
+  git push
 
-# Push changes to the remote repository
-echo "Pushing changes to remote repository..."
-git push
-
-# Move back to the original directory
-cd -
+  # Move back to the original directory
+  cd -
+else
+  echo "Skipping push to GitHub repo."
+fi
