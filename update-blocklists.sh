@@ -102,8 +102,6 @@ num_categories=${#categories[@]}
 # Add a new associative array to store failed downloads
 declare -A failed_downloads
 
-# Add a new array to store successfully downloaded categories
-successful_categories=()
 
 # Create a temporary file to store successful categories
 success_file=$(mktemp)
@@ -113,17 +111,34 @@ download_blocklist() {
   category="$2"
   raw_output="$OUTPUT_DIR/$category-raw.txt"
   consolidated_output="$OUTPUT_DIR/$category-consolidated.txt"
+
+  # Truncate the raw_output file if it exists before downloading
+  if [[ -f "$raw_output" ]]; then
+    > "$raw_output"
+  fi
+
   echo "For category $category: Downloading $line"
   if ! curl -sL "$line" | awk '!a[$0]++' >> "$raw_output"; then
     echo "Error: Could not download blocklist file: $line" >&2
-    failed_downloads["$category"]+=("$line")
+    category_download_status["$category"]="failed" # Update the category status
     return
   fi
-  # If the download is successful, add the category to the successful_categories array
-  if ! grep -q "^${category}$" "$success_file"; then
-    echo "$category" >> "$success_file"
-  fi
 }
+
+
+# Add a new associative array to store the download status for each category
+declare -A category_download_status
+
+# Extract categories from sourcelists.md file
+categories=()
+while read line; do
+  if [[ $line =~ ^# ]]; then
+    category="${line#"# "}"
+    categories+=("$category")
+    category_download_status["$category"]="success" # Initialize the category status
+  fi
+done < "$SOURCELISTS_PATH"
+
 
 while read line; do
   # Check if the line starts with a hash (#) character
@@ -133,8 +148,7 @@ while read line; do
     # Create a new output file for this category
     raw_output="$OUTPUT_DIR/$category-raw.txt"
     consolidated_output="$OUTPUT_DIR/$category-consolidated.txt"
-    # Delete any existing files
-    rm -f "$raw_output" "$consolidated_output"
+    # Don't delete files here, we'll handle it inside the download_blocklist function
   fi
 
   # Check if the line is a valid URL and download the blocklist
@@ -146,10 +160,14 @@ done < "$SOURCELISTS_PATH"
 # Wait for all downloads to complete
 wait
 
-# Read successful categories from the temporary file
-while read -r category; do
-  successful_categories+=("$category")
-done < "$success_file"
+# Read successful categories from the category_download_status array
+successful_categories=()
+for category in "${categories[@]}"; do
+  if [[ ${category_download_status["$category"]} == "success" ]]; then
+    successful_categories+=("$category")
+  fi
+done
+
 
 # Remove the temporary file
 rm -f "$success_file"
