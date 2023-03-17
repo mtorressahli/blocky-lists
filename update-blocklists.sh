@@ -198,8 +198,9 @@ consolidate_category_lists() {
   # Print results
   total_lines="$(wc -l < "$raw_output")"
   unique_pct=$(awk "BEGIN { printf \"%.2f\", ${unique_raw}/${total_lines}*100 }")
+  removed_lines=
   retained_pct=$(awk "BEGIN { printf \"%.2f\", 100 - ${unique_raw}/${total_lines}*100 }")
-  echo " lines removed from $category-consolidated-deduped.txt – $retained_pct% retained"
+  echo " lines removed from $category-consolidated.txt – $retained_pct% retained"
 }
 
 
@@ -242,6 +243,7 @@ remove_duplicates() {
 
   # Update the global variable
   last_duplicates_removed=$duplicates_removed
+  echo "$last_duplicates_removed" > "$5"
 }
 
 
@@ -268,13 +270,22 @@ done
 # Remove duplicates and update the total_duplicates_removed array
 for ((i = 0; i < ${#categories[@]} - 1; i++)); do
   for ((j = i + 1; j < ${#categories[@]}; j++)); do
-    high_priority_file="$OUTPUT_DIR/${successful_categories[$i]}-consolidated-deduped.txt"
-    low_priority_file="$OUTPUT_DIR/${successful_categories[$j]}-consolidated-deduped.txt"
-    remove_duplicates "$high_priority_file" "${successful_categories[$i]}" "$low_priority_file" "${successful_categories[$j]}"
-    total_duplicates_removed["$low_priority_file"]=$((total_duplicates_removed["$low_priority_file"] + last_duplicates_removed))
+    high_priority_file="$OUTPUT_DIR/${categories[$i]}-consolidated-deduped.txt"
+    low_priority_file="$OUTPUT_DIR/${categories[$j]}-consolidated-deduped.txt"
+    temp_file="$OUTPUT_DIR/temp-duplicates-removed-${categories[$j]}.txt"
+    remove_duplicates "$high_priority_file" "${categories[$i]}" "$low_priority_file" "${categories[$j]}" "$temp_file" &
   done
   wait
+  for ((j = i + 1; j < ${#categories[@]}; j++)); do
+    low_priority_file="$OUTPUT_DIR/${categories[$j]}-consolidated-deduped.txt"
+    temp_file="$OUTPUT_DIR/temp-duplicates-removed-${categories[$j]}.txt"
+    last_duplicates_removed=$(cat "$temp_file")
+    total_duplicates_removed["$low_priority_file"]=$((total_duplicates_removed["$low_priority_file"] + last_duplicates_removed))
+    rm "$temp_file"
+  done
 done
+
+
 
 
 
