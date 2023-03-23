@@ -1,4 +1,7 @@
 blocklists/*full*.txt
 blocklists/*consolidated*.txt
 blocklists/*deduped*.txt
+blocklists/*raw*.txt
+
+
 
