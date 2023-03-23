@@ -36,7 +36,7 @@ if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
   echo "Usage: $0 [-o OUTPUT_DIR] [-s SOURCELISTS_PATH] [-l LOG_FILE] [-p] [REPO_DIR] REPO_URL"
   exit 1
 fi
-<<<<<<< HEAD
+
 
 # Assign non-optional arguments to variables
 if [ "$#" -eq 1 ]; then
