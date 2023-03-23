@@ -547,6 +547,7 @@
 3285.api.swrve.com
 3285.content.swrve.com
 32851897.com
+3303404.notifysrv.com
 3332218.com
 3332219.com
 3332655.com
@@ -1212,7 +1213,6 @@
 9skdjbfjksd99.monster
 9skdjbfskdf19.monster
 9sudkfsdf99.monster
-9w2zed1szg.execute-api.us-east-1.amazonaws.com
 a-5.info
 a-ams.1rx.io
 a-ap.1rx.io
@@ -3019,6 +3019,7 @@ adv.yllix.com
 advancelocal-adapter-image-uploads.s3.amazonaws.com
 advancelocal.blueconic.net
 advangelists.com
+advantageseliminatebystander.com
 advbanners.global.ssl.fastly.net
 adventori.com
 adventurefeeds.xml-eu.ak-is2.net
@@ -5192,7 +5193,6 @@ aw.advertica-cdn.com
 aw.mic.mob.com
 awaisdanish.com
 awebudapt.site
-aweproto.com
 awjsuysgacunjms.xyz
 awptlpu.com
 aws-ac.o-s.io
@@ -6376,7 +6376,6 @@ calendar.rodim.ru
 calibrelugger.com
 call.inforsea.com
 callingfracture.com
-callmeocaptain.xyz
 callousviewpointmotto.com
 callprintingdetailed.com
 calls.uptownleads.com
@@ -7295,6 +7294,7 @@ chris-gcp.logrocket.io
 chrisrespectivelynostrils.com
 chtfgaiv.xyz
 chucity.com
+chuckmorseart.com
 chuntian.buzz
 chunyuqiufeng.com
 churchdwightsizmek22033498.s.moatpixel.com
@@ -8367,6 +8367,7 @@ creatives.smaato.com
 creatives.smaato.net
 creatives.smadex.com
 creativeteam.it
+creche-trelaze.fr
 creepingseverely.com
 crentgate.com
 crevicedepressingpumpkin.com
@@ -8803,6 +8804,7 @@ d32zx4lhje2crr.cloudfront.net
 d34z52lz2jji1t.cloudfront.net
 d3591q3cwzbtxd.cloudfront.net
 d35r45qhjmgs3g.cloudfront.net
+d36gnquzy6rtyp.cloudfront.net
 d36sxvmjoflc2i.cloudfront.net
 d37s9vd5t6mov7.cloudfront.net
 d38fey2d93vryi.cloudfront.net
@@ -9102,6 +9104,7 @@ decoratedpyjamas.com
 decreelawsuit.com
 dedicatenecessarilydowry.com
 deductstep.com
+deefauph.com
 deemaccommodating.com
 deepdive.exponential.com
 deepdive.zum.com
@@ -10757,6 +10760,7 @@ family1st.ca
 familyholiday.ml
 familyhomefinance.com.au
 famir.com
+famousremainedshaft.com
 fanbyepee.com
 fandangollc.demdex.net
 fangfeng001.xyz
@@ -11356,6 +11360,7 @@ fyber.com
 fyc.heyzap.com
 fyclmpkmxdfna.com
 fykubtqgoet.xyz
+fyrsbckgi-c.global.ssl.fastly.net
 fyyqq.top
 fznpq.com
 fzygcof.cn
@@ -13372,6 +13377,7 @@ init.sms.mob.com
 init.startappexchange.com
 init.startappservice.com
 init.supersonicads.com
+initiallycoffee.com
 injuredripplegentleman.com
 inkrevenue.gotrackier.com
 inkstorylikeness.com
@@ -13886,6 +13892,7 @@ jnrpnlsgk.xyz
 jnwq.xyz
 jnyngg.cn
 jo.tictocswended.com
+jobfilletfortitude.com
 jobs.logrocket.com
 jobs.smartadserver.com
 jocufords.com
@@ -14842,7 +14849,6 @@ load77.exelator.com
 loada.exelator.com
 loadan.exelator.com
 loader.sharethis.com
-loader.zeroform.com
 loadeu.exelator.com
 loading-delivery2.com
 loadm.exelator.com
@@ -14869,7 +14875,6 @@ locatorpp.corevm.com
 lodder5.biz
 lodenbud.com
 lodeo-adnw.adtdp.com
-loeingroost.com
 loftsbaacad.com
 log-anninhthudo.zadn.vn
 log-api.pangolin-sdk-toutiao.com
@@ -17936,7 +17941,6 @@ pic123.top
 pic50.pingguolv.com
 piccash.net
 piccdn.igetget.com
-pickinnimiety.com
 pickupfaxmultitude.com
 picmedia.biz
 pics.xgo-img.com.cn
@@ -20563,7 +20567,6 @@ saspreview.com
 satsumadurian.com
 saturim.com
 saucepietyfortnight.com
-saucon-sponsors.streetinteractive.com
 saumeechoa.com
 sauwoaptain.com
 saveuwfksjspwtb.xyz
@@ -21409,7 +21412,6 @@ slonejulyh.xyz
 slopeac.com
 slot.union.ucweb.com
 slotscity.g2afse.com
-sltvhyjthx.com
 sm-sp.followfollow.com
 sm45k.com
 smaato-server.thinknearhub.com
@@ -23160,6 +23162,7 @@ tan1dian.com
 tangerine.nexage.com
 tangyaols.com
 tanit-adr.com
+tankastapia.com
 tap-nexus.appspot.com
 tapcore.airpush.com
 tapdaq-adverts.global.ssl.fastly.net
@@ -23336,7 +23339,6 @@ teslax2promo.net
 teslayear.com
 test-places.gammassp.com
 test.besstidniki.ru
-test.kangooroo-re.com
 test.sexeanonyme.com
 test.xn--80adgd0afxokeh1b6di7c.xn--p1ai
 testbooksolutions.com
@@ -24572,7 +24574,6 @@ ulead.urekamedia.com
 ulogs.umeng.com
 ulogs.umengcloud.com
 ultimateaderaser.com
-ultimateclixx.com
 ultraadserver.com
 ulyvjty4rd.com
 um-public-panel-prod.s3.amazonaws.com
@@ -25999,7 +26000,6 @@ wrapper.blueseed.tv
 wrapper.lemde.fr
 wrating.com
 wrenpalsy.com
-wretcheddrunkard.com
 wrfueani.xyz
 wrgxoixunklvv.xyz
 writsteespas.com

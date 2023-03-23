@@ -1298,7 +1298,6 @@
 0.0.0.0 vcfs6ip5h6.bi
 0.0.0.0 vcfs6ip5h6.bid
 0.0.0.0 vegas-1.xmrpool.net
-0.0.0.0 vg02h8z1ul.me
 0.0.0.0 video.estream.nu
 0.0.0.0 video.stream.vidzi.tv
 0.0.0.0 video.videos.vidto.me
@@ -2047,7 +2046,6 @@
 0.0.0.0 www.hodling.faith
 0.0.0.0 www.horrorscopeme.ml
 0.0.0.0 www.hostcontent.live
-0.0.0.0 www.hostingcloud.faith
 0.0.0.0 www.hostingcloud.live
 0.0.0.0 www.hostingcloud.review
 0.0.0.0 www.hostingcloud.win
