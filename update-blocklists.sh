@@ -1,16 +1,64 @@
 #!/bin/bash
 
-# Define the output directory and git repo paths
-OUTPUT_DIR="/mnt/apps/opt/tools/blocky-lists/blocklists"
-REPO_DIR="/mnt/apps/opt/tools/blocky-lists"
-REPO_URL="https://github.com/mtorressahli/blocky-lists.git"
+# Initialize optional variables with default values
+OUTPUT_DIR=""
+SOURCELISTS_PATH=""
+LOG_FILE=""
+PUSH_TO_GITHUB=true
 
-# Define the path to the local copy of the Markdown file
-SOURCELISTS_PATH="/mnt/apps/opt/tools/blocky-lists/blocklists/sourcelists.md"
+# Parse optional arguments
+while getopts "o:s:l:p" opt; do
+  case $opt in
+    o)
+      OUTPUT_DIR="$OPTARG"
+      ;;
+    s)
+      SOURCELISTS_PATH="$OPTARG"
+      ;;
+    l)
+      LOG_FILE="$OPTARG"
+      ;;
+    p)
+      PUSH_TO_GITHUB=false
+      ;;
+    *)
+      echo "Usage: $0 [-o OUTPUT_DIR] [-s SOURCELISTS_PATH] [-l LOG_FILE] [-p] [REPO_DIR] REPO_URL"
+      exit 1
+      ;;
+  esac
+done
 
-# Git username and email
-GIT_USERNAME="mtorressahli"
-GIT_EMAIL="mtorressahli@gmail.com"
+# Shift arguments to remove the optional flags that have already been parsed
+shift $((OPTIND-1))
+
+# Check if the correct number of non-optional arguments is provided
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
+  echo "Usage: $0 [-o OUTPUT_DIR] [-s SOURCELISTS_PATH] [-l LOG_FILE] [-p] [REPO_DIR] REPO_URL"
+  exit 1
+fi
+
+# Assign non-optional arguments to variables
+if [ "$#" -eq 1 ]; then
+  REPO_DIR="$(pwd)/blocky-lists"
+  REPO_URL="$1"
+else
+  REPO_DIR="$1"
+  REPO_URL="$2"
+fi
+
+# Set default values for OUTPUT_DIR and SOURCELISTS_PATH if not provided
+if [ -z "$OUTPUT_DIR" ]; then
+  OUTPUT_DIR="$REPO_DIR/blocklists"
+fi
+
+if [ -z "$SOURCELISTS_PATH" ]; then
+  SOURCELISTS_PATH="$REPO_DIR/blocklists/sourcelists.md"
+fi
+
+# Redirect stdout and stderr to the log file if provided
+if [ -n "$LOG_FILE" ]; then
+  exec > >(tee -a "$LOG_FILE") 2>&1
+fi
 
 # Pull github repo
 echo
@@ -40,7 +88,26 @@ echo -e "\033[1m# Downloading blocklists by category #\033[0m"
 echo           "######################################"
 echo
 
-# Define a function to download a blocklist
+# Extract categories from sourcelists.md file
+categories=()
+while read line; do
+  if [[ $line =~ ^# ]]; then
+    category="${line#"# "}"
+    categories+=("$category")
+  fi
+done < "$SOURCELISTS_PATH"
+
+num_categories=${#categories[@]}
+
+# Add a new associative array to store failed downloads
+declare -A failed_downloads
+
+# Add a new array to store successfully downloaded categories
+successful_categories=()
+
+# Create a temporary file to store successful categories
+success_file=$(mktemp)
+
 download_blocklist() {
   line="$1"
   category="$2"
@@ -49,7 +116,12 @@ download_blocklist() {
   echo "For category $category: Downloading $line"
   if ! curl -sL "$line" | awk '!a[$0]++' >> "$raw_output"; then
     echo "Error: Could not download blocklist file: $line" >&2
+    failed_downloads["$category"]+=("$line")
     return
+  fi
+  # If the download is successful, add the category to the successful_categories array
+  if ! grep -q "^${category}$" "$success_file"; then
+    echo "$category" >> "$success_file"
   fi
 }
 
@@ -63,8 +135,6 @@ while read line; do
     consolidated_output="$OUTPUT_DIR/$category-consolidated.txt"
     # Delete any existing files
     rm -f "$raw_output" "$consolidated_output"
-#    echo
-#    echo -e "\033[1mDownloading lists from $category category\033[0m"
   fi
 
   # Check if the line is a valid URL and download the blocklist
@@ -76,51 +146,168 @@ done < "$SOURCELISTS_PATH"
 # Wait for all downloads to complete
 wait
 
+# Read successful categories from the temporary file
+while read -r category; do
+  successful_categories+=("$category")
+done < "$success_file"
 
-# Consolidate all category files into full-raw.txt and full-consolidated.txt files
+# Remove the temporary file
+rm -f "$success_file"
+
+# Print the successful_categories array
+echo "Successful_categories: ${successful_categories[*]}"
+
+# Print download summary
 echo
-echo "###################################"
+echo "Download Summary:"
+echo "------------------"
+
+for category in "${categories[@]}"; do
+  if [[ " ${successful_categories[*]} " =~ " ${category} " ]]; then
+    echo -e "\033[1m$category:\033[0m The lists downloaded successfully"
+  else
+    if [[ -v failed_downloads["$category"] ]]; then
+      echo -e "\033[1m$category:\033[0m ${#failed_downloads["$category"]} lists failed to download:"
+      for url in "${failed_downloads["$category"][@]}"; do
+        echo "  - $url"
+      done
+    else
+      echo -e "\033[1m$category:\033[0m No lists found for this category"
+    fi
+  fi
+done
+
+
+echo
+echo           "###################################"
 echo -e "\033[1m# Consolidating lists by category #\033[0m"
-echo "###################################"
+echo           "###################################"
 echo
 
 # Define a function to consolidate a category-specific blocklist
 consolidate_category_lists() {
   raw_output="$1"
   category="$(basename "${raw_output%-raw.txt}")"
-  if [[ $category == full ]]; then
-    return
-  fi
   consolidated_output="$OUTPUT_DIR/$category-consolidated.txt"
   echo "Consolidating blocklists for $category"
   sort -u "$raw_output" -o "$consolidated_output"
 
-  # Calculate unique and shared lines
+  # Calculate unique lines
   unique_raw="$(comm -23 <(sort "$raw_output") <(sort "$consolidated_output") | wc -l)"
-  unique_consolidated="$(comm -23 <(sort "$consolidated_output") <(sort "$raw_output") | wc -l)"
-  shared="$(comm -12 <(sort "$raw_output") <(sort "$consolidated_output") | wc -l)"
-
-  # Verify that consolidation was successful
-  if [[ $unique_consolidated -ne 0 || $shared -gt $(wc -l < "$raw_output") ]]; then
-    echo "Error: Consolidation failed for $category" >&2
-    continue
-  fi
-
+  
   # Print results
   total_lines="$(wc -l < "$raw_output")"
-  unique_pct=$(awk "BEGIN { printf \"%.2f\", ${unique_consolidated}/${total_lines}*100 }")
-  shared_pct=$(awk "BEGIN { printf \"%.2f\", ${shared}/${total_lines}*100 }")
-  echo "Consolidation succeeded for $category ($shared/$total_lines lines shared, $shared_pct%)"
+  unique_pct=$(awk "BEGIN { printf \"%.2f\", ${unique_raw}/${total_lines}*100 }")
+  retained_pct=$(awk "BEGIN { printf \"%.2f\", 100 - ${unique_raw}/${total_lines}*100 }")
+  echo " lines removed from $category-consolidated-deduped.txt – $retained_pct% retained"
 }
 
 
 # Consolidate each category-specific blocklist
 for raw_output in "$OUTPUT_DIR"/*-raw.txt; do
-  consolidate_category_lists "$raw_output" &
+  category="$(basename "${raw_output%-raw.txt}")"
+  # Check if the category is in the successful_categories array before processing
+  if [[ " ${successful_categories[*]} " =~ " ${category} " ]]; then
+    echo "Found category in successful_categories: ${category}"
+    consolidate_category_lists "$raw_output" &
+  fi
 done
 
 # Wait for all consolidations to complete
 wait
+
+# Remove duplicates between all pairs of category-specific files
+echo
+echo           "##########################################"
+echo -e "\033[1m# Removing duplicates between categories #\033[0m"
+echo           "##########################################"
+echo
+
+
+remove_duplicates() {
+  high_priority_file="$1"
+  high_priority_category="$2"
+  low_priority_file="$3"
+  low_priority_category="$4"
+  tmp_file="$(mktemp)"
+
+  # Remove duplicates from the low priority file
+  duplicates_removed=$(comm -12 <(sort "$high_priority_file") <(sort "$low_priority_file") | wc -l)
+  comm -23 <(sort "$low_priority_file") <(sort "$high_priority_file") > "$tmp_file"
+
+  # Replace the low priority file with the temporary file
+  mv "$tmp_file" "$low_priority_file"
+
+  echo "Removed $duplicates_removed dupes from $low_priority_category, already present in $high_priority_category"
+
+  # Update the global variable
+  last_duplicates_removed=$duplicates_removed
+}
+
+
+for category in "${categories[@]}"; do
+  simple_file="$OUTPUT_DIR/${category}.txt"
+  consolidated_file="$OUTPUT_DIR/${category}-consolidated.txt"
+  deduped_file="$OUTPUT_DIR/${category}-consolidated-deduped.txt"
+  
+  # Copy the consolidated category file to a deduped category file
+  cp "$consolidated_file" "$deduped_file"
+  
+done
+
+
+# Array to store the total number of duplicates removed per file
+declare -A total_duplicates_removed
+last_duplicates_removed=0
+
+# Initialize the total_duplicates_removed array
+for category in "${categories[@]}"; do
+  total_duplicates_removed["$OUTPUT_DIR/${category}-consolidated-deduped.txt"]=0
+done
+
+# Remove duplicates and update the total_duplicates_removed array
+for ((i = 0; i < ${#categories[@]} - 1; i++)); do
+  for ((j = i + 1; j < ${#categories[@]}; j++)); do
+    high_priority_file="$OUTPUT_DIR/${successful_categories[$i]}-consolidated-deduped.txt"
+    low_priority_file="$OUTPUT_DIR/${successful_categories[$j]}-consolidated-deduped.txt"
+    remove_duplicates "$high_priority_file" "${successful_categories[$i]}" "$low_priority_file" "${successful_categories[$j]}"
+    total_duplicates_removed["$low_priority_file"]=$((total_duplicates_removed["$low_priority_file"] + last_duplicates_removed))
+  done
+  wait
+done
+
+
+
+echo
+echo "Summary:"
+echo "---------"
+
+# Print the summary for each file
+for category in "${categories[@]}"; do
+  file="$OUTPUT_DIR/${category}-consolidated-deduped.txt"
+  original_count=$(wc -l < "$file")
+  duplicates_removed=${total_duplicates_removed["$file"]}
+  retained_count=$((original_count - duplicates_removed))
+  percentage_retained=$(awk "BEGIN {printf \"%.2f\", $retained_count / $original_count * 100}")
+  echo -e "\033[1m$category:\033[0m $duplicates_removed lines removed – $percentage_retained% retained"
+done
+
+# Create simple-named category files and deduplicated category files
+echo
+echo           "########################################################################"
+echo -e "\033[1m# Creating simple-named category files and deduplicated category files #\033[0m"
+echo           "########################################################################"
+echo
+
+for category in "${successful_categories[@]}"; do
+  simple_file="$OUTPUT_DIR/${category}.txt"
+  deduped_file="$OUTPUT_DIR/${category}-consolidated-deduped.txt"
+  
+  # Copy the deduped category file to a simple-named category file
+  cp "$deduped_file" "$simple_file"
+  echo "Created simple-named category file for ${category}: $(basename "${simple_file}")"
+done
+
 
 echo
 echo           "################################################################################"
@@ -167,30 +354,32 @@ fi
 echo
 echo "Done! Output files are located in $OUTPUT_DIR."
 
+if $PUSH_TO_GITHUB; then
+  # Push to github repo
+  echo
+  echo           "##########################"
+  echo -e "\033[1m# Pushing to Github repo #\033[0m"
+  echo           "##########################"
+  echo
 
-# Push to github repo
-echo
-echo           "##########################"
-echo -e "\033[1m# Pushing to Github repo #\033[0m"
-echo           "##########################"
-echo
+  # Move to the output directory
+  cd "$OUTPUT_DIR"
 
-# Move to the output directory
-cd "$OUTPUT_DIR"
+  # Add all files to git
+  echo "Adding files to Git..."
+  git add .
 
-# Add all files to git
-echo "Adding files to Git..."
-git add .
+  # Commit the changes
+  echo "Committing changes..."
+  git commit -m "Updated blocklists $(date +%F)"
 
-# Commit the changes
-echo "Committing changes..."
-git config user.name "$GIT_USERNAME"
-git config user.email "$GIT_EMAIL"
-git commit -m "Updated blocklists $(date +%F)"
+  # Push changes to the remote repository
+  echo "Pushing changes to remote repository..."
+  git push
 
-# Push changes to the remote repository
-echo "Pushing changes to remote repository..."
-git push
+  # Move back to the original directory
+  cd -
+else
+  echo "Skipping push to GitHub repo."
+fi
 
-# Move back to the original directory
-cd -
