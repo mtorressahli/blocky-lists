@@ -36,6 +36,7 @@ if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
   echo "Usage: $0 [-o OUTPUT_DIR] [-s SOURCELISTS_PATH] [-l LOG_FILE] [-p] [REPO_DIR] REPO_URL"
   exit 1
 fi
+<<<<<<< HEAD
 
 # Assign non-optional arguments to variables
 if [ "$#" -eq 1 ]; then
@@ -55,6 +56,27 @@ if [ -z "$SOURCELISTS_PATH" ]; then
   SOURCELISTS_PATH="$REPO_DIR/blocklists/sourcelists.md"
 fi
 
+=======
+
+# Assign non-optional arguments to variables
+if [ "$#" -eq 1 ]; then
+  REPO_DIR="$(pwd)/blocky-lists"
+  REPO_URL="$1"
+else
+  REPO_DIR="$1"
+  REPO_URL="$2"
+fi
+
+# Set default values for OUTPUT_DIR and SOURCELISTS_PATH if not provided
+if [ -z "$OUTPUT_DIR" ]; then
+  OUTPUT_DIR="$REPO_DIR/blocklists"
+fi
+
+if [ -z "$SOURCELISTS_PATH" ]; then
+  SOURCELISTS_PATH="$REPO_DIR/blocklists/sourcelists.md"
+fi
+
+>>>>>>> 2051527b725c55e7a8919b5886c55ec2830e6c81
 # Redirect stdout and stderr to the log file if provided
 if [ -n "$LOG_FILE" ]; then
   exec > >(tee -a "$LOG_FILE") 2>&1
@@ -102,8 +124,11 @@ num_categories=${#categories[@]}
 # Add a new associative array to store failed downloads
 declare -A failed_downloads
 
+<<<<<<< HEAD
 # Add a new array to store successfully downloaded categories
 successful_categories=()
+=======
+>>>>>>> 2051527b725c55e7a8919b5886c55ec2830e6c81
 
 # Create a temporary file to store successful categories
 success_file=$(mktemp)
@@ -113,10 +138,20 @@ download_blocklist() {
   category="$2"
   raw_output="$OUTPUT_DIR/$category-raw.txt"
   consolidated_output="$OUTPUT_DIR/$category-consolidated.txt"
+
+  # Truncate the raw_output file if it exists before downloading
+  if [[ -f "$raw_output" ]]; then
+    > "$raw_output"
+  fi
+
   echo "For category $category: Downloading $line"
   if ! curl -sL "$line" | awk '!a[$0]++' >> "$raw_output"; then
     echo "Error: Could not download blocklist file: $line" >&2
+<<<<<<< HEAD
     failed_downloads["$category"]+=("$line")
+=======
+    category_download_status["$category"]="failed" # Update the category status
+>>>>>>> 2051527b725c55e7a8919b5886c55ec2830e6c81
     return
   fi
   # If the download is successful, add the category to the successful_categories array
@@ -124,6 +159,21 @@ download_blocklist() {
     echo "$category" >> "$success_file"
   fi
 }
+
+
+# Add a new associative array to store the download status for each category
+declare -A category_download_status
+
+# Extract categories from sourcelists.md file
+categories=()
+while read line; do
+  if [[ $line =~ ^# ]]; then
+    category="${line#"# "}"
+    categories+=("$category")
+    category_download_status["$category"]="success" # Initialize the category status
+  fi
+done < "$SOURCELISTS_PATH"
+
 
 while read line; do
   # Check if the line starts with a hash (#) character
@@ -133,8 +183,12 @@ while read line; do
     # Create a new output file for this category
     raw_output="$OUTPUT_DIR/$category-raw.txt"
     consolidated_output="$OUTPUT_DIR/$category-consolidated.txt"
+<<<<<<< HEAD
     # Delete any existing files
     rm -f "$raw_output" "$consolidated_output"
+=======
+    # Don't delete files here, we'll handle it inside the download_blocklist function
+>>>>>>> 2051527b725c55e7a8919b5886c55ec2830e6c81
   fi
 
   # Check if the line is a valid URL and download the blocklist
@@ -146,6 +200,7 @@ done < "$SOURCELISTS_PATH"
 # Wait for all downloads to complete
 wait
 
+<<<<<<< HEAD
 # Read successful categories from the temporary file
 while read -r category; do
   successful_categories+=("$category")
@@ -154,6 +209,20 @@ done < "$success_file"
 # Remove the temporary file
 rm -f "$success_file"
 
+=======
+# Read successful categories from the category_download_status array
+successful_categories=()
+for category in "${categories[@]}"; do
+  if [[ ${category_download_status["$category"]} == "success" ]]; then
+    successful_categories+=("$category")
+  fi
+done
+
+
+# Remove the temporary file
+rm -f "$success_file"
+
+>>>>>>> 2051527b725c55e7a8919b5886c55ec2830e6c81
 # Print the successful_categories array
 echo "Successful_categories: ${successful_categories[*]}"
 
@@ -198,8 +267,14 @@ consolidate_category_lists() {
   # Print results
   total_lines="$(wc -l < "$raw_output")"
   unique_pct=$(awk "BEGIN { printf \"%.2f\", ${unique_raw}/${total_lines}*100 }")
+<<<<<<< HEAD
   retained_pct=$(awk "BEGIN { printf \"%.2f\", 100 - ${unique_raw}/${total_lines}*100 }")
   echo " lines removed from $category-consolidated-deduped.txt – $retained_pct% retained"
+=======
+  removed_lines=
+  retained_pct=$(awk "BEGIN { printf \"%.2f\", 100 - ${unique_raw}/${total_lines}*100 }")
+  echo " lines removed from $category-consolidated.txt – $retained_pct% retained"
+>>>>>>> 2051527b725c55e7a8919b5886c55ec2830e6c81
 }
 
 
@@ -242,6 +317,10 @@ remove_duplicates() {
 
   # Update the global variable
   last_duplicates_removed=$duplicates_removed
+<<<<<<< HEAD
+=======
+  echo "$last_duplicates_removed" > "$5"
+>>>>>>> 2051527b725c55e7a8919b5886c55ec2830e6c81
 }
 
 
@@ -268,16 +347,37 @@ done
 # Remove duplicates and update the total_duplicates_removed array
 for ((i = 0; i < ${#categories[@]} - 1; i++)); do
   for ((j = i + 1; j < ${#categories[@]}; j++)); do
+<<<<<<< HEAD
     high_priority_file="$OUTPUT_DIR/${successful_categories[$i]}-consolidated-deduped.txt"
     low_priority_file="$OUTPUT_DIR/${successful_categories[$j]}-consolidated-deduped.txt"
     remove_duplicates "$high_priority_file" "${successful_categories[$i]}" "$low_priority_file" "${successful_categories[$j]}"
     total_duplicates_removed["$low_priority_file"]=$((total_duplicates_removed["$low_priority_file"] + last_duplicates_removed))
   done
   wait
+=======
+    high_priority_file="$OUTPUT_DIR/${categories[$i]}-consolidated-deduped.txt"
+    low_priority_file="$OUTPUT_DIR/${categories[$j]}-consolidated-deduped.txt"
+    temp_file="$OUTPUT_DIR/temp-duplicates-removed-${categories[$j]}.txt"
+    remove_duplicates "$high_priority_file" "${categories[$i]}" "$low_priority_file" "${categories[$j]}" "$temp_file" &
+  done
+  wait
+  for ((j = i + 1; j < ${#categories[@]}; j++)); do
+    low_priority_file="$OUTPUT_DIR/${categories[$j]}-consolidated-deduped.txt"
+    temp_file="$OUTPUT_DIR/temp-duplicates-removed-${categories[$j]}.txt"
+    last_duplicates_removed=$(cat "$temp_file")
+    total_duplicates_removed["$low_priority_file"]=$((total_duplicates_removed["$low_priority_file"] + last_duplicates_removed))
+    rm "$temp_file"
+  done
+>>>>>>> 2051527b725c55e7a8919b5886c55ec2830e6c81
 done
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2051527b725c55e7a8919b5886c55ec2830e6c81
 echo
 echo "Summary:"
 echo "---------"
@@ -364,6 +464,7 @@ if $PUSH_TO_GITHUB; then
 
   # Move to the output directory
   cd "$OUTPUT_DIR"
+<<<<<<< HEAD
 
   # Add all files to git
   echo "Adding files to Git..."
@@ -383,3 +484,23 @@ else
   echo "Skipping push to GitHub repo."
 fi
 
+=======
+
+  # Add all files to git
+  echo "Adding files to Git..."
+  git add .
+
+  # Commit the changes
+  echo "Committing changes..."
+  git commit -m "Updated blocklists $(date +%F)"
+
+  # Push changes to the remote repository
+  echo "Pushing changes to remote repository..."
+  git push
+
+  # Move back to the original directory
+  cd -
+else
+  echo "Skipping push to GitHub repo."
+fi
+>>>>>>> 2051527b725c55e7a8919b5886c55ec2830e6c81
