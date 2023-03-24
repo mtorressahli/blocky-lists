@@ -15,7 +15,6 @@
 0.0.0.0 008.0x1f4b0.com
 0.0.0.0 009.0x1f4b0.com
 0.0.0.0 01.beeppool.org
-0.0.0.0 2giga.download
 0.0.0.0 2ledhenone.com
 0.0.0.0 50-50-pool.burst.beeppool.org
 0.0.0.0 50bots.nullrefexcep.com
@@ -37,6 +36,7 @@
 0.0.0.0 acm.beeppool.org
 0.0.0.0 activation.nimiq.com
 0.0.0.0 ad.g-content.bi
+0.0.0.0 ad.g-content.bid
 0.0.0.0 ad.jsecoin.com
 0.0.0.0 adfreetv.ch
 0.0.0.0 admin.beeppool.org
@@ -231,6 +231,7 @@
 0.0.0.0 cn.nimiq.com
 0.0.0.0 cname.beeppool.org
 0.0.0.0 cnt.st
+0.0.0.0 cnt.statistic.date
 0.0.0.0 code.ws
 0.0.0.0 cody.services
 0.0.0.0 coihive.com
@@ -492,6 +493,7 @@
 0.0.0.0 light.browsermine.com
 0.0.0.0 link-ip.beeppool.org
 0.0.0.0 live.4480.org
+0.0.0.0 livelyoffers.club
 0.0.0.0 lmeeulcfttqv.ru
 0.0.0.0 load.nimiqpool.com
 0.0.0.0 login.browsermine.com
@@ -590,6 +592,7 @@
 0.0.0.0 miner.beeppool.org
 0.0.0.0 miner.nimiq.com
 0.0.0.0 miner.nimiq.network
+0.0.0.0 miner.pr0gramm.com
 0.0.0.0 miner2.nimiq.network
 0.0.0.0 minexmr.st
 0.0.0.0 mining-etcc.beeppool.org
@@ -748,6 +751,7 @@
 0.0.0.0 piratebay.to
 0.0.0.0 piratenbucht.eu
 0.0.0.0 pirateproxy.cl
+0.0.0.0 platform.jsecoin.com
 0.0.0.0 play.alt.indigital.lt
 0.0.0.0 play.anyname.zelfo.pw
 0.0.0.0 play.assets.shentaiesp.asia
@@ -1326,6 +1330,7 @@
 0.0.0.0 web.flashx.co
 0.0.0.0 web.minr.pw
 0.0.0.0 web.rocks.io
+0.0.0.0 web.stati.bid
 0.0.0.0 webassembly.st
 0.0.0.0 webchain.beeppool.org
 0.0.0.0 webdisk.monerominer.rocks
@@ -1982,6 +1987,7 @@
 0.0.0.0 www.etacontent.com
 0.0.0.0 www.ethereum-pocket.de
 0.0.0.0 www.ethereum-pocket.eu
+0.0.0.0 www.ethtrader.de
 0.0.0.0 www.etlrsq.ru
 0.0.0.0 www.etn.spacepools.org
 0.0.0.0 www.etzbnfuigipwvs.ru
@@ -2139,6 +2145,7 @@
 0.0.0.0 www.mining.coin-hive.com
 0.0.0.0 www.minr.browsermine.com
 0.0.0.0 www.minr.nullrefexcep.com
+0.0.0.0 www.minr.pw
 0.0.0.0 www.miscws002.coinhive.com
 0.0.0.0 www.miscws005.coinhive.com
 0.0.0.0 www.miscws009.coinhive.com
@@ -2338,6 +2345,7 @@
 0.0.0.0 www.verresof.com
 0.0.0.0 www.viaxmr.com
 0.0.0.0 www.videoplayer2.xyz
+0.0.0.0 www.vkcdnservice.com
 0.0.0.0 www.voumxy.ru
 0.0.0.0 www.vpzccwpyilvoyg.ru
 0.0.0.0 www.vzzexalcirfgrf.ru
