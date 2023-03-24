@@ -35,7 +35,7 @@
 # Expires: 1 days (update frequency)
 # Homepage: https://github.com/d3ward/toolz
 # Homepage: https://oisd.nl
-# Last modified: 2023-03-23T18:15:24+0000
+# Last modified: 2023-03-24T00:05:30+0000
 # License: CC BY-NC-SA
 # Source: https://github.com/d3ward/toolz/blob/master/src/d3host.txt
 # Syntax: Domains                                                                  
@@ -44,7 +44,7 @@
 # Title: oisd small
 # Type : Stable
 # Updated On: 12/3/2023
-# Version: 202303231815
+# Version: 202303240005
 #====== Social Trackers =======
 #======= Error Trackers =======
 #========= Analytics ==========
@@ -547,7 +547,6 @@
 3285.api.swrve.com
 3285.content.swrve.com
 32851897.com
-3303404.notifysrv.com
 3332218.com
 3332219.com
 3332655.com
@@ -1566,7 +1565,6 @@ aan.cdn.speedshiftmedia.com
 aan.speedshiftmedia.com
 aanqylta.com
 aaotpokaquathii.com
-aaplevidyapith.sgbau.ac.in
 aapz.com
 aarbur.com
 aaronabel.com
@@ -1667,7 +1665,6 @@ academy.triplelift.com
 acads.net
 acaox.com
 acaoz.com
-accentneglectporter.com
 access.conversantmedia.com
 accesstrade.net
 acclog001.shop-pro.jp
@@ -3526,7 +3523,6 @@ allhottoss.cam
 allicinarenig.com
 allimpactdesign.com
 allmobexpo.com
-allotupwardmalicious.com
 allownotification.com
 allownotifications.com
 allowpush.com
@@ -3597,7 +3593,6 @@ amazon-adsystems.com
 amazon-tam-match.dotomi.com
 amazon.wii-info.fr
 amazonclix.com
-amazoni.lol
 amazonlw.com
 amazonneon.com
 ambient-platform.com
@@ -4893,6 +4888,7 @@ arvb.78bfjskxto.ru
 arvb.ewtcbedtmx.ru
 arvb.gamz48qlok.ru
 arvister.showheroes.com
+aryacollegeharyana.com
 arzorgfadv.com
 as-dmpsync.3lift.com
 as-eb2.3lift.com
@@ -6374,7 +6370,6 @@ calendar.rodim.ru
 calibrelugger.com
 call.inforsea.com
 callingfracture.com
-callmeocaptain.xyz
 callousviewpointmotto.com
 callprintingdetailed.com
 calls.uptownleads.com
@@ -8056,7 +8051,6 @@ content2.wasmachines.nl
 content2.zoom.nl
 contentapi.celltick.com
 contentmentchef.com
-contentr.net
 contentspread.net
 contentstream.pl
 context.hotline.ua
@@ -8657,7 +8651,6 @@ d19uh5b0umbjrr.cloudfront.net
 d19xf4taj229i8.cloudfront.net
 d1afet533lf7zs.cloudfront.net
 d1auwh1li83eb9.cloudfront.net
-d1aznprfp4xena.cloudfront.net
 d1b0fk9ns6n0w9.cloudfront.net
 d1bevsqehy4npt.cloudfront.net
 d1bioqbsunwnrb.cloudfront.net
@@ -9860,7 +9853,6 @@ dvser.china.com
 dw-eu.com.com
 dw998.com
 dwellingvague.com
-dwetwdstom1020.com
 dwf6crl4raal7.cloudfront.net
 dwfnwxxnddh.xyz
 dwfoxvfktkqmf.com
@@ -10202,7 +10194,6 @@ end.scorecardresearch.com
 endocrineweb.com
 endpencilclothes.com
 endpoint.adxxx.com
-endream.buzz
 enennsa.gushiwen.cn
 eneverals.biz
 enews10.yxlady.net
@@ -10758,7 +10749,6 @@ family1st.ca
 familyholiday.ml
 familyhomefinance.com.au
 famir.com
-famousremainedshaft.com
 fanbyepee.com
 fandangollc.demdex.net
 fangfeng001.xyz
@@ -11198,7 +11188,6 @@ foudocho.com
 foundationhorny.com
 foundchoked.com
 foundfax.com
-foundfroshelves.com
 foundtr.com
 fouptauk.com
 fout.jp
@@ -11764,6 +11753,7 @@ gl-adsrv.rtbsuperhub.com
 gl.cnt.my
 gl.genmonet.com
 glaidsurteeg.com
+glaiwhee.net
 glance.inmobi.com
 glance.l.inmobicdn.net
 glasgownevo.com
@@ -12593,7 +12583,6 @@ houbaotech.cn
 houdini.haaretz.co.il
 houfopsichoa.com
 houhupsa.com
-hourvanishedunit.com
 houseads-prod.elasticbeanstalk.com
 houseads.ttpsdk.info
 houseofpubs.com
@@ -13308,6 +13297,7 @@ indexesinsist.com
 indexeslaughter.com
 indexexchange.com
 indictmentfunctions.com
+indigonails.ie
 indium.openx.net
 indn.infolinks.com
 indo.autoads.asia
@@ -13883,7 +13873,6 @@ jnrpnlsgk.xyz
 jnwq.xyz
 jnyngg.cn
 jo.tictocswended.com
-jobfilletfortitude.com
 jobs.logrocket.com
 jobs.smartadserver.com
 jocufords.com
@@ -14866,7 +14855,6 @@ locatorpp.corevm.com
 lodder5.biz
 lodenbud.com
 lodeo-adnw.adtdp.com
-loeingroost.com
 loftsbaacad.com
 log-anninhthudo.zadn.vn
 log-api.pangolin-sdk-toutiao.com
@@ -15503,6 +15491,7 @@ mailderef.mail.com
 mailer.i.bizml.ru
 maillovelove.net
 mailmunch.s3.amazonaws.com
+main.exoclick.com
 main.optvx.com
 main.pubexchange.com
 main.trafficfactory.biz
@@ -15850,7 +15839,6 @@ menispirfly.com
 mentseco.one
 menu.metu.vn
 mepuzz.com
-mequitecmantenimiento.es
 meraxes-cdn.polarmobile.com
 merchant.accesstrade.net
 merciless.localstars.com
@@ -16228,7 +16216,6 @@ monitor.superfastmediation.com
 monitor.teko.vn
 monitor.uu.qq.com
 monitor.wpm.neustar.biz
-monitoriing.buzz
 monitoring.proper.io
 monitoring.vungle.com
 monitoring.youronlinechoices.com
@@ -18435,7 +18422,6 @@ precially.space
 precisionsuccessfullycommemorate.com
 predataclient.b-cdn.net
 predatasrv.com
-preezeaorist.com
 prefabskhivan.com
 preferences.truste.com
 preitem.wshareit.com
@@ -18461,7 +18447,6 @@ presdithas.pw
 presentation-ams1.turn.com
 presentation-hkg1.turn.com
 presentationtracking.netflix.com
-presidentscaredlow.com
 press.parsely.com
 pressize.xml-eu.ak-is2.net
 pressizer.net
@@ -18913,7 +18898,6 @@ pushydialoguenoisy.com
 pusishegre.com
 pussl60.com
 puzzlementangrily.com
-puzzlepursued.com
 puzzlestore.ximad.com
 pv-tm.everesttech.net
 pv.awin1.com
@@ -19498,7 +19482,6 @@ registration.gimbal.com
 registration.tiltingpoint.io
 registry.connatix.com
 reglowbetear.com
-rei9jc56oyqux0rcpcquqmm7jc5freirpsquqkope3n3axrjacg8ipolxvbm.codes
 rek.mobi
 rek.serial24.com
 rek5.savefrom.net
@@ -23461,6 +23444,7 @@ tiki.ants.vn
 tikibihu.com
 tikivn.api.sociaplus.com
 tikstok.fun
+tilanalytics.timesinternet.in
 tileswan.cmcm.com
 timbol.iad-03.braze.com
 timefeathered.fun
@@ -24564,6 +24548,7 @@ ulead.urekamedia.com
 ulogs.umeng.com
 ulogs.umengcloud.com
 ultimateaderaser.com
+ultimateclixx.com
 ultraadserver.com
 ulyvjty4rd.com
 um-public-panel-prod.s3.amazonaws.com
@@ -25990,7 +25975,6 @@ wrapper.blueseed.tv
 wrapper.lemde.fr
 wrating.com
 wrenpalsy.com
-wretcheddrunkard.com
 wrfueani.xyz
 wrgxoixunklvv.xyz
 writsteespas.com
@@ -26977,7 +26961,6 @@ zcp.zwame.pt
 zd.plattedrattons.com
 zdryg.com
 zdtvfpu.cn
-zedoaryrejects.com
 zeephoobul.com
 zekeeksaita.com
 zekiatagur.com
