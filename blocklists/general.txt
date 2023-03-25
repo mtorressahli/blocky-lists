@@ -1,0 +1,114 @@
+   
+    <li><a href="/contact">contact</a></li>
+    <li><a href="/downloads">downloads</a></li>
+    <li><a href="/faq">FAQ</a></li>
+    <li><a href="/includedlists">included lists</a></li>
+    <li><a href="/report">report false positive</a></li>
+  </ul>
+  <a href="/" class="logo">oisd</a>
+  <div class="kofi_donate"><a href="https://ko-fi.com/sjhgvr"><img src="/assets/kofi_n.gif" class="donateButton" title="Support Me on Ko-fi" alt="Ko-fi button"></a></div>
+  <div class="patreon_donate"><a href="https://www.patreon.com/oisd"><img src="/assets/patreon_n.gif" class="donateButton" title="Become a patron" alt="Patreon button"></a></div>
+  <div class="paypal_donate"><a href="https://paypal.me/sjhgvr"><img src="/assets/paypal_n.gif" class="donateButton" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal"></a></div>
+  <input class="menu-btn" type="checkbox" id="menu-btn">
+  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+  <ul class="menu">
+ </div>
+ <div class="donate_buttons">
+ <div style="display: inline-block">OISD - Domain Blocklist - Since november 2018<br><small>👍 Like the list? Please consider donating ❤️</small></div>
+ <img src="/assets/sjhgvr_new.jpg" id="footer_avatar" alt="">
+# --- Adcolony
+# --- Amazon
+# --- Apple
+# --- Bugsnag
+# --- Doubleclick.net
+# --- Facebook
+# --- FreshWorks
+# --- Google Ads
+# --- Google Analytics
+# --- Hotjar
+# --- Huawei
+# --- LinkedIn
+# --- Luckyorange
+# --- Media.net
+# --- MouseFlow
+# --- OnePlus
+# --- Oppo
+# --- Pinterest
+# --- Realme
+# --- Reddit
+# --- Samsung
+# --- Sentry
+# --- Stats WP Plugin
+# --- TikTok
+# --- Twitter
+# --- Unity
+# --- Xiaomi
+# --- Yahoo
+# --- Yandex
+# --- YouTube
+# Created by: d3ward
+# Description: Simple and small list with the most popular advertising, tracking, analytics and social advertising services
+# Entries : 137
+# Homepage: https://github.com/d3ward/toolz
+# License: CC BY-NC-SA
+# Source: https://github.com/d3ward/toolz/blob/master/src/d3host.txt
+# This list cover all the tests on https://d3ward.github.io/toolz/adblock
+# Title: d3Host List by d3ward
+# Type : Stable
+# Updated On: 12/3/2023
+#====== Social Trackers =======
+#======= Error Trackers =======
+#========= Analytics ==========
+#============ Ads =============
+#============ Mix =============
+#============ OEMs ============
+0.0.0.0 adtech.yahooinc.com
+0.0.0.0 advertising-api-eu.amazon.com
+0.0.0.0 analytics-api.samsunghealthcn.com
+0.0.0.0 bdapi-ads.realmemobile.com
+0.0.0.0 bdapi-in-ads.realmemobile.com
+0.0.0.0 fwtracks.freshmarketer.com
+0.0.0.0 grs.hicloud.com
+0.0.0.0 logservice1.hicloud.com
+0.0.0.0 metrics2.data.hicloud.com
+0.0.0.0 realtime.luckyorange.com
+0.0.0.0 samsung-com.112.2o7.net
+<!DOCTYPE html>
+</body>
+</div>
+</footer>
+</head>
+</header>
+</html>
+<body>
+<div id="content"><div id="oisd_notifier"></div>
+<div id="dare"><br>You shouldn't find any false positives!<br>In fact, I dare you to report any ;)</div><br>
+<div id="page-container">
+<div>
+<footer>
+<h2>Does <green>not interfere</green> with:</h2>
+<h2>The NSFW list <red>blocks</red>:</h2>
+<h2>The big list <red>blocks</red>:</h2>
+<h2>Why this list?</h2>
+<head>
+<header>
+<html lang="en">
+<link rel="apple-touch-icon" href="data:;base64,iVBORw0KGgo=">
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<link rel="stylesheet" href="/assets/style2.css?1676552921">
+<meta name="author" content="sjhgvr">
+<meta name="color-scheme" content="light">
+<meta name="description" content="oisd domain blocklist official homepage">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/assets/script2.js?1676752384"></script>
+<title>oisd | domain blocklist</title>
+Ads, (Mobile) App Ads, Phishing, Malvertising, Malware, Spyware, Ransomware, CryptoJacking, Scam ... Telemetry/Analytics/Tracking (Where not needed for proper functionality)
+If your adblocker supports the <strong style="text-decoration: underline;">big</strong> list, then that's the one ;)
+Shock / Porn / Adult
+The <strong style="text-decoration: underline;">small</strong> list is designed to work for everyone, it might just be the only list you need.<br>
+This list prioritizes functionality over blocking.
+Thís is the list to use at home, at work or at your (grand-)parents place.<br>
+Torrent, Warez, Porn, Crypto Exchanges, News Satire, Slickdeals (or shopping sites in general), Google (shopping), Facebook, Twitter, Snapchat, Link Shortners, Affiliate/Tracking Links, Gambling, Surveys, etc.
+Users report it "passes the girlfriend-test" ;)
+Welcome to the oisd blocklist official website<br><br>
+Where most other blocklists go for the "block ads/trackers and when something breaks it's up to the user to figure out what to whitelist"-approach ..
