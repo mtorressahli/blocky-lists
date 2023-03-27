@@ -1,0 +1,70 @@
+# --- Adcolony
+# --- Amazon
+# --- Apple
+# --- Bugsnag
+# --- Doubleclick.net
+# --- Facebook
+# --- FreshWorks
+# --- Google Ads
+# --- Google Analytics
+# --- Hotjar
+# --- Huawei
+# --- LinkedIn
+# --- Luckyorange
+# --- Media.net
+# --- MouseFlow
+# --- OnePlus
+# --- Oppo
+# --- Pinterest
+# --- Realme
+# --- Reddit
+# --- Samsung
+# --- Sentry
+# --- Stats WP Plugin
+# --- TikTok
+# --- Twitter
+# --- Unity
+# --- Xiaomi
+# --- Yahoo
+# --- Yandex
+# --- YouTube
+# Created by: d3ward
+# Description: Simple and small list with the most popular advertising, tracking, analytics and social advertising services
+# Entries : 137
+# Homepage: https://github.com/d3ward/toolz
+# License: CC BY-NC-SA
+# Source: https://github.com/d3ward/toolz/blob/master/src/d3host.txt
+# This list cover all the tests on https://d3ward.github.io/toolz/adblock
+# Title: d3Host List by d3ward
+# Type : Stable
+# Updated On: 12/3/2023
+#====== Social Trackers =======
+#======= Error Trackers =======
+#========= Analytics ==========
+#============ Ads =============
+#============ Mix =============
+#============ OEMs ============
+0.0.0.0 adtech.yahooinc.com
+0.0.0.0 advertising-api-eu.amazon.com
+0.0.0.0 analytics-api.samsunghealthcn.com
+0.0.0.0 analyticsengine.s3.amazonaws.com
+0.0.0.0 api.bugsnag.com
+0.0.0.0 api.mouseflow.com
+0.0.0.0 app.bugsnag.com
+0.0.0.0 bdapi-ads.realmemobile.com
+0.0.0.0 bdapi-in-ads.realmemobile.com
+0.0.0.0 browser.sentry-cdn.com
+0.0.0.0 cdn-test.mouseflow.com
+0.0.0.0 claritybt.freshmarketer.com
+0.0.0.0 click.oneplus.cn
+0.0.0.0 events.hotjar.io
+0.0.0.0 extmaps-api.yandex.net
+0.0.0.0 fwtracks.freshmarketer.com
+0.0.0.0 grs.hicloud.com
+0.0.0.0 logservice1.hicloud.com
+0.0.0.0 metrics2.data.hicloud.com
+0.0.0.0 offerwall.yandex.net
+0.0.0.0 realtime.luckyorange.com
+0.0.0.0 samsung-com.112.2o7.net
+0.0.0.0 tools.mouseflow.com
+0.0.0.0 widgets.pinterest.com
