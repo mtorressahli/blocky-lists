@@ -1298,6 +1298,7 @@
 0.0.0.0 vcfs6ip5h6.bi
 0.0.0.0 vcfs6ip5h6.bid
 0.0.0.0 vegas-1.xmrpool.net
+0.0.0.0 vg02h8z1ul.me
 0.0.0.0 video.estream.nu
 0.0.0.0 video.stream.vidzi.tv
 0.0.0.0 video.videos.vidto.me
