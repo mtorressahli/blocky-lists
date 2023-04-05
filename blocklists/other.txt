@@ -1180,6 +1180,7 @@
 0.0.0.0 sss.www.freecontent.date
 0.0.0.0 stage.beeppool.org
 0.0.0.0 staging.webxmr.com
+0.0.0.0 stat.maalaimalar.com
 0.0.0.0 stat0808.info
 0.0.0.0 static-02.flu.cc
 0.0.0.0 static-cnt.bid
@@ -1297,6 +1298,7 @@
 0.0.0.0 vcfs6ip5h6.bi
 0.0.0.0 vcfs6ip5h6.bid
 0.0.0.0 vegas-1.xmrpool.net
+0.0.0.0 vg02h8z1ul.me
 0.0.0.0 video.estream.nu
 0.0.0.0 video.stream.vidzi.tv
 0.0.0.0 video.videos.vidto.me
