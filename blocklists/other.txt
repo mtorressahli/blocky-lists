@@ -15,6 +15,7 @@
 0.0.0.0 008.0x1f4b0.com
 0.0.0.0 009.0x1f4b0.com
 0.0.0.0 01.beeppool.org
+0.0.0.0 2giga.download
 0.0.0.0 2ledhenone.com
 0.0.0.0 50-50-pool.burst.beeppool.org
 0.0.0.0 50bots.nullrefexcep.com
@@ -2161,6 +2162,7 @@
 0.0.0.0 www.moonbit.co.in
 0.0.0.0 www.moonsade.com
 0.0.0.0 www.msg-2.me
+0.0.0.0 www.mu
 0.0.0.0 www.mwor.gq
 0.0.0.0 www.my-rigs.com
 0.0.0.0 www.myadstats.com
