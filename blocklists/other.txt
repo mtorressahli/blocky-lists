@@ -1180,7 +1180,6 @@
 0.0.0.0 sss.www.freecontent.date
 0.0.0.0 stage.beeppool.org
 0.0.0.0 staging.webxmr.com
-0.0.0.0 stat.maalaimalar.com
 0.0.0.0 stat0808.info
 0.0.0.0 static-02.flu.cc
 0.0.0.0 static-cnt.bid
@@ -2047,6 +2046,7 @@
 0.0.0.0 www.hodling.faith
 0.0.0.0 www.horrorscopeme.ml
 0.0.0.0 www.hostcontent.live
+0.0.0.0 www.hostingcloud.faith
 0.0.0.0 www.hostingcloud.live
 0.0.0.0 www.hostingcloud.review
 0.0.0.0 www.hostingcloud.win
@@ -2087,6 +2087,7 @@
 0.0.0.0 www.jqxrrygqnagn.ru
 0.0.0.0 www.js.coinhive.com
 0.0.0.0 www.jsccnn.com
+0.0.0.0 www.jshosting.download
 0.0.0.0 www.jshosting.faith
 0.0.0.0 www.jshosting.science
 0.0.0.0 www.jurty.ml
