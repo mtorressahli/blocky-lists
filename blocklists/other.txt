@@ -214,7 +214,6 @@
 0.0.0.0 charlie.noblock.pro
 0.0.0.0 charlie2.directprimal.com
 0.0.0.0 chicago01.electroneum.hashvault.pro
-0.0.0.0 chmproxy.bid
 0.0.0.0 chws.browsermine.com
 0.0.0.0 ci.beeppool.org
 0.0.0.0 clickandbuy.review
@@ -1298,7 +1297,6 @@
 0.0.0.0 vcfs6ip5h6.bi
 0.0.0.0 vcfs6ip5h6.bid
 0.0.0.0 vegas-1.xmrpool.net
-0.0.0.0 vg02h8z1ul.me
 0.0.0.0 video.estream.nu
 0.0.0.0 video.stream.vidzi.tv
 0.0.0.0 video.videos.vidto.me
@@ -2047,7 +2045,6 @@
 0.0.0.0 www.hodling.faith
 0.0.0.0 www.horrorscopeme.ml
 0.0.0.0 www.hostcontent.live
-0.0.0.0 www.hostingcloud.faith
 0.0.0.0 www.hostingcloud.live
 0.0.0.0 www.hostingcloud.review
 0.0.0.0 www.hostingcloud.win
@@ -2088,7 +2085,6 @@
 0.0.0.0 www.jqxrrygqnagn.ru
 0.0.0.0 www.js.coinhive.com
 0.0.0.0 www.jsccnn.com
-0.0.0.0 www.jshosting.download
 0.0.0.0 www.jshosting.faith
 0.0.0.0 www.jshosting.science
 0.0.0.0 www.jurty.ml
