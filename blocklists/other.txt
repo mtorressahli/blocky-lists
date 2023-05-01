@@ -15,7 +15,6 @@
 0.0.0.0 008.0x1f4b0.com
 0.0.0.0 009.0x1f4b0.com
 0.0.0.0 01.beeppool.org
-0.0.0.0 2giga.download
 0.0.0.0 2ledhenone.com
 0.0.0.0 50-50-pool.burst.beeppool.org
 0.0.0.0 50bots.nullrefexcep.com
@@ -1298,7 +1297,6 @@
 0.0.0.0 vcfs6ip5h6.bi
 0.0.0.0 vcfs6ip5h6.bid
 0.0.0.0 vegas-1.xmrpool.net
-0.0.0.0 vg02h8z1ul.me
 0.0.0.0 video.estream.nu
 0.0.0.0 video.stream.vidzi.tv
 0.0.0.0 video.videos.vidto.me
