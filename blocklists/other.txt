@@ -15,6 +15,7 @@
 0.0.0.0 008.0x1f4b0.com
 0.0.0.0 009.0x1f4b0.com
 0.0.0.0 01.beeppool.org
+0.0.0.0 2giga.download
 0.0.0.0 2ledhenone.com
 0.0.0.0 50-50-pool.burst.beeppool.org
 0.0.0.0 50bots.nullrefexcep.com
@@ -2045,7 +2046,6 @@
 0.0.0.0 www.hodling.faith
 0.0.0.0 www.horrorscopeme.ml
 0.0.0.0 www.hostcontent.live
-0.0.0.0 www.hostingcloud.faith
 0.0.0.0 www.hostingcloud.live
 0.0.0.0 www.hostingcloud.review
 0.0.0.0 www.hostingcloud.win
