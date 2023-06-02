@@ -15,6 +15,7 @@
 0.0.0.0 008.0x1f4b0.com
 0.0.0.0 009.0x1f4b0.com
 0.0.0.0 01.beeppool.org
+0.0.0.0 2giga.download
 0.0.0.0 2ledhenone.com
 0.0.0.0 50-50-pool.burst.beeppool.org
 0.0.0.0 50bots.nullrefexcep.com
@@ -214,6 +215,7 @@
 0.0.0.0 charlie.noblock.pro
 0.0.0.0 charlie2.directprimal.com
 0.0.0.0 chicago01.electroneum.hashvault.pro
+0.0.0.0 chmproxy.bid
 0.0.0.0 chws.browsermine.com
 0.0.0.0 ci.beeppool.org
 0.0.0.0 clickandbuy.review
@@ -2085,6 +2087,7 @@
 0.0.0.0 www.jqxrrygqnagn.ru
 0.0.0.0 www.js.coinhive.com
 0.0.0.0 www.jsccnn.com
+0.0.0.0 www.jshosting.download
 0.0.0.0 www.jshosting.faith
 0.0.0.0 www.jshosting.science
 0.0.0.0 www.jurty.ml
