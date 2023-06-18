@@ -214,7 +214,6 @@
 0.0.0.0 charlie.noblock.pro
 0.0.0.0 charlie2.directprimal.com
 0.0.0.0 chicago01.electroneum.hashvault.pro
-0.0.0.0 chmproxy.bid
 0.0.0.0 chws.browsermine.com
 0.0.0.0 ci.beeppool.org
 0.0.0.0 clickandbuy.review
@@ -1181,6 +1180,7 @@
 0.0.0.0 sss.www.freecontent.date
 0.0.0.0 stage.beeppool.org
 0.0.0.0 staging.webxmr.com
+0.0.0.0 stat.maalaimalar.com
 0.0.0.0 stat0808.info
 0.0.0.0 static-02.flu.cc
 0.0.0.0 static-cnt.bid
