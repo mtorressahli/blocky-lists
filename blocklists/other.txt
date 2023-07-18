@@ -889,7 +889,6 @@
 0.0.0.0 qpmsybxqvlje.ru
 0.0.0.0 qwertycoin.crypto-webminer.com
 0.0.0.0 rack.cryptaloot.pro
-0.0.0.0 rbkshort.info
 0.0.0.0 rctfgrazkha.ru
 0.0.0.0 refresh-js.bitbucket.io
 0.0.0.0 repo.nimiq.com
