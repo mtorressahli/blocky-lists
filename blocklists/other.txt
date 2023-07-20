@@ -1996,7 +1996,6 @@
 0.0.0.0 www.flnqmin.org
 0.0.0.0 www.fortrader.ru
 0.0.0.0 www.foxx.to
-0.0.0.0 www.fr
 0.0.0.0 www.fra-gra-c1-s1.inf.nimiq.network
 0.0.0.0 www.fra-gra-c1-s2.inf.nimiq.network
 0.0.0.0 www.fra-rbx-c1-s1.inf.nimiq.network
