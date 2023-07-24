@@ -51,14 +51,3 @@
 0.0.0.0 metrics2.data.hicloud.com
 0.0.0.0 realtime.luckyorange.com
 0.0.0.0 samsung-com.112.2o7.net
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-</body></html>
-</head><body>
-<h1>Service Unavailable</h1>
-<html><head>
-<p>Additionally, a 503 Service Unavailable
-<p>The server is temporarily unable to service your
-<title>503 Service Unavailable</title>
-error was encountered while trying to use an ErrorDocument to handle the request.</p>
-problems. Please try again later.</p>
-request due to maintenance downtime or capacity
