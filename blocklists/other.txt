@@ -15,7 +15,6 @@
 0.0.0.0 008.0x1f4b0.com
 0.0.0.0 009.0x1f4b0.com
 0.0.0.0 01.beeppool.org
-0.0.0.0 2giga.download
 0.0.0.0 2ledhenone.com
 0.0.0.0 50-50-pool.burst.beeppool.org
 0.0.0.0 50bots.nullrefexcep.com
@@ -305,7 +304,6 @@
 0.0.0.0 direct.cpufan.club
 0.0.0.0 djfhwosjck.bi
 0.0.0.0 dl.browsermine.com
-0.0.0.0 dmdamedia.hu
 0.0.0.0 dmg.crypto.csgocpu.com
 0.0.0.0 dns11.beeppool.org
 0.0.0.0 dns7.beeppool.org
@@ -1153,7 +1151,6 @@
 0.0.0.0 seed4.nimiq-network.com
 0.0.0.0 seed4.nimiqtest.net
 0.0.0.0 seedrs.nimiqpool.com
-0.0.0.0 seminarski-diplomski.co.rs
 0.0.0.0 sentry.nullrefexcep.com
 0.0.0.0 server.adless.io
 0.0.0.0 server4.nullrefexcep.com
