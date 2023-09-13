@@ -305,7 +305,6 @@
 0.0.0.0 direct.cpufan.club
 0.0.0.0 djfhwosjck.bi
 0.0.0.0 dl.browsermine.com
-0.0.0.0 dmdamedia.hu
 0.0.0.0 dmg.crypto.csgocpu.com
 0.0.0.0 dns11.beeppool.org
 0.0.0.0 dns7.beeppool.org
@@ -1998,7 +1997,6 @@
 0.0.0.0 www.flnqmin.org
 0.0.0.0 www.fortrader.ru
 0.0.0.0 www.foxx.to
-0.0.0.0 www.fr
 0.0.0.0 www.fra-gra-c1-s1.inf.nimiq.network
 0.0.0.0 www.fra-gra-c1-s2.inf.nimiq.network
 0.0.0.0 www.fra-rbx-c1-s1.inf.nimiq.network
