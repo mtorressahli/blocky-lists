@@ -1151,7 +1151,6 @@
 0.0.0.0 seed4.nimiq-network.com
 0.0.0.0 seed4.nimiqtest.net
 0.0.0.0 seedrs.nimiqpool.com
-0.0.0.0 seminarski-diplomski.co.rs
 0.0.0.0 sentry.nullrefexcep.com
 0.0.0.0 server.adless.io
 0.0.0.0 server4.nullrefexcep.com
@@ -2139,6 +2138,7 @@
 0.0.0.0 www.mining.coin-hive.com
 0.0.0.0 www.minr.browsermine.com
 0.0.0.0 www.minr.nullrefexcep.com
+0.0.0.0 www.minr.pw
 0.0.0.0 www.miscws002.coinhive.com
 0.0.0.0 www.miscws005.coinhive.com
 0.0.0.0 www.miscws009.coinhive.com
