@@ -2138,7 +2138,6 @@
 0.0.0.0 www.mining.coin-hive.com
 0.0.0.0 www.minr.browsermine.com
 0.0.0.0 www.minr.nullrefexcep.com
-0.0.0.0 www.minr.pw
 0.0.0.0 www.miscws002.coinhive.com
 0.0.0.0 www.miscws005.coinhive.com
 0.0.0.0 www.miscws009.coinhive.com
