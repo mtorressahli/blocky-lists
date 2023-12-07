@@ -2163,6 +2163,7 @@
 0.0.0.0 www.moonbit.co.in
 0.0.0.0 www.moonsade.com
 0.0.0.0 www.msg-2.me
+0.0.0.0 www.mu
 0.0.0.0 www.mwor.gq
 0.0.0.0 www.my-rigs.com
 0.0.0.0 www.myadstats.com
