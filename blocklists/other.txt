@@ -305,6 +305,7 @@
 0.0.0.0 direct.cpufan.club
 0.0.0.0 djfhwosjck.bi
 0.0.0.0 dl.browsermine.com
+0.0.0.0 dmdamedia.hu
 0.0.0.0 dmg.crypto.csgocpu.com
 0.0.0.0 dns11.beeppool.org
 0.0.0.0 dns7.beeppool.org
